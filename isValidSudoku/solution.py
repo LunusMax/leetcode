@@ -1,56 +1,44 @@
 from typing import List
 
 class Solution:
+    """ Class to check if a given sudoku board is valid. """
+    
     def isValidSudoku(self, board: List[List[str]]) -> bool:
+        """
+        Determine if a 9x9 Sudoku board is valid.
         
-        # Create sets for the elements
-        rows = [set() for _ in range(9)]
-        columns = [set() for _ in range(9)]
-        boxes = [set() for _ in range(9)]
-
-        # Traverse the elements
+        Args:
+        board (List[List[str]]): The 9x9 Sudoku board.
+        
+        Returns:
+        bool: True if the board is valid, False otherwise.
+        """
+        rows, columns, boxes = [set() for _ in range(9)], [set() for _ in range(9)], [set() for _ in range(9)]
+        
         for i in range(9):
             for j in range(9):
-
-                # Define element
                 element = board[i][j]
-
-                # Skip "."
                 if element == '.':
                     continue
-
-                # Check if the number already exists in the row, column, or box
-                if element in rows[i]:
+                if element in rows[i] or element in columns[j] or element in boxes[(i // 3) * 3 + (j // 3)]:
                     return False
-                
-                if element in columns[j]:
-                    return False
-                
-                # Determine the index of each box
-                box_index = (i // 3) * 3 + (j // 3)
-                if element in boxes[box_index]:
-                    return False
-                
-                # Add the tested integer to the sets
                 rows[i].add(element)
                 columns[j].add(element)
-                boxes[box_index].add(element)
+                boxes[(i // 3) * 3 + (j // 3)].add(element)
         
-        # If no duplicate was found
         return True
 
-
-# Solution instance
-sol = Solution()
-
-# Call and print the result
-result = sol.isValidSudoku([["5","3",".",".","7",".",".",".","."]
-,["6",".",".","1","9","5",".",".","."]
-,[".","9","8",".",".",".",".","6","."]
-,["8",".",".",".","6",".",".",".","3"]
-,["4",".",".","8",".","3",".",".","1"]
-,["7",".",".",".","2",".",".",".","6"]
-,[".","6",".",".",".","8","2","8","."]
-,[".",".",".","4","1","9",".",".","5"]
-,[".",".",".",".","8",".",".","7","9"]])
-print(result)
+if __name__ == "__main__":
+    sol = Solution()
+    result = sol.isValidSudoku([
+        ["5","3",".",".","7",".",".",".","."],
+        ["6",".",".","1","9","5",".",".","."],
+        [".","9","8",".",".",".",".","6","."],
+        ["8",".",".",".","6",".",".",".","3"],
+        ["4",".",".","8",".","3",".",".","1"],
+        ["7",".",".",".","2",".",".",".","6"],
+        [".","6",".",".",".",".","2","8","."],
+        [".",".",".","4","1","9",".",".","5"],
+        [".",".",".",".","8",".",".","7","9"]
+    ])
+    print(result)
