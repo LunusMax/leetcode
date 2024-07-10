@@ -25,8 +25,8 @@ def main():
     sol = Solution()
     
     # Call the maxEnvelopes method and print the result
-    resultado = sol.maxEnvelopes([[5,4],[6,4],[6,7],[2,3]])
-    print(resultado)  # Expected output: 3
+    result = sol.maxEnvelopes([[5,4],[6,4],[6,7],[2,3]])
+    print(result)  # Expected output: 3
 
 if __name__ == "__main__":
     main()
