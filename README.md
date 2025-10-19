@@ -65,5 +65,3 @@ python solution.py
 🔗 [LinkedIn](https://www.linkedin.com/in/lucionunes/) • [GitHub](https://github.com/LunusMax)
 
 ---
-
-> — *Lucio Nunes*
