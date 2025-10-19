@@ -63,5 +63,3 @@ python solution.py
 👨‍💻 Developed by **Lucio Nunes**  
 🎓 Data Scientist & M.Sc. in Computer Science  
 🔗 [LinkedIn](https://www.linkedin.com/in/lucionunes/) • [GitHub](https://github.com/LunusMax)
-
----
